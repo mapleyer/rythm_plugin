@@ -22,32 +22,33 @@ VALUE_CHARACTER=[^\n\r\f\\] | "\\"{CRLF} | "\\".
 END_OF_LINE_COMMENT=("#"|"!")[^\r\n]*
 SEPARATOR=[:=]
 KEY_CHARACTER=[^:=\ \n\r\t\f\\] | "\\ "
-AT = [@]
-AT_FOR = [@for]
-AT_IF = [@if]
-AT_WHILE = [@while]
+AT = @
+AT_FOR = @for
+AT_IF = @if
+AT_WHILE = @while
+
 
 %state WAITING_VALUE
 
 %%
-/*
+
 <YYINITIAL> {END_OF_LINE_COMMENT}                           { yybegin(YYINITIAL); return RythmTypes.COMMENT; }
 
 <YYINITIAL> {KEY_CHARACTER}+                                { yybegin(YYINITIAL); return RythmTypes.KEY; }
-*/
+
 <YYINITIAL> {SEPARATOR}                                     { yybegin(WAITING_VALUE); return RythmTypes.SEPARATOR; }
 
 
 
-<YYINITIAL> {AT}                                            { yybegin(YYINITIAL); return RythmTypes.AT}
+<YYINITIAL> {AT}                                            { yybegin(YYINITIAL); return RythmTypes.AT;}
 
-<YYINITIAL> {AT_FOR}                                            { yybegin(YYINITIAL); return RythmTypes.AT_FOR}
+<YYINITIAL> {AT_FOR}                                            { yybegin(YYINITIAL); return RythmTypes.AT_FOR;}
 
-<YYINITIAL> {AT_IF}                                            { yybegin(YYINITIAL); return RythmTypes.AT_IF}
+<YYINITIAL> {AT_IF}                                            { yybegin(YYINITIAL); return RythmTypes.AT_IF;}
 
-<YYINITIAL> {AT_WHILE}                                            { yybegin(YYINITIAL); return RythmTypes.AT_WHILE}
+<YYINITIAL> {AT_WHILE}                                            { yybegin(YYINITIAL); return RythmTypes.AT_WHILE;}
 
-/*
+
 
 <WAITING_VALUE> {CRLF}({CRLF}|{WHITE_SPACE})+               { yybegin(YYINITIAL); return TokenType.WHITE_SPACE; }
 
@@ -60,4 +61,4 @@ AT_WHILE = [@while]
 {WHITE_SPACE}+                                              { yybegin(YYINITIAL); return TokenType.WHITE_SPACE; }
 
 .                                                           { return TokenType.BAD_CHARACTER; }
-*/
+

@@ -15,7 +15,7 @@ import static com.intellij.openapi.editor.colors.TextAttributesKey.createTextAtt
 /**
  * Created by mpl on 05.08.2016.
  */
-public class RythmSyntaxHighlighter extends SyntaxHighlighterBase{
+public class RythmSyntaxHighlighter extends SyntaxHighlighterBase {
     public static final TextAttributesKey SEPARATOR = createTextAttributesKey("RYTHM_SEPARATOR", DefaultLanguageHighlighterColors.OPERATION_SIGN);
     public static final TextAttributesKey KEY = createTextAttributesKey("RYTHM_KEY", DefaultLanguageHighlighterColors.KEYWORD);
     public static final TextAttributesKey VALUE = createTextAttributesKey("RYTHM_VALUE", DefaultLanguageHighlighterColors.STRING);
@@ -25,7 +25,7 @@ public class RythmSyntaxHighlighter extends SyntaxHighlighterBase{
     public static final TextAttributesKey AT = createTextAttributesKey("RYTHM_AT", DefaultLanguageHighlighterColors.OPERATION_SIGN);
 
 
-private static final TextAttributesKey[] BAD_CHAR_KEYS = new TextAttributesKey[]{BAD_CHARACTER};
+    private static final TextAttributesKey[] BAD_CHAR_KEYS = new TextAttributesKey[]{BAD_CHARACTER};
     private static final TextAttributesKey[] SEPARATOR_KEYS = new TextAttributesKey[]{SEPARATOR};
     private static final TextAttributesKey[] KEYS_KEYS = new TextAttributesKey[]{KEY};
     private static final TextAttributesKey[] VALUE_KEYS = new TextAttributesKey[]{VALUE};
@@ -35,40 +35,36 @@ private static final TextAttributesKey[] BAD_CHAR_KEYS = new TextAttributesKey[]
     private static final TextAttributesKey[] AT_KEYS = new TextAttributesKey[]{AT};
 
 
-
     @NotNull
     @Override
 
-    public Lexer getHighlightingLexer(){
+    public Lexer getHighlightingLexer() {
         return new RythmLexerAdapter();
     }
 
     @NotNull
     @Override
-    public TextAttributesKey[] getTokenHighlights(IElementType tokenType){
+    public TextAttributesKey[] getTokenHighlights(IElementType tokenType) {
 
-        /*
-        if(tokenType.equals(RythmTypes.SEPARATOR)){
+
+        if (tokenType.equals(RythmTypes.SEPARATOR)) {
             return SEPARATOR_KEYS;
-        }else
-
-        if (tokenType.equals(RythmTypes.KEY)){
+        } else if (tokenType.equals(RythmTypes.KEY)) {
             return KEYS_KEYS;
-
-        if (tokenType.equals(RythmTypes.VALUE)){
+        } else if (tokenType.equals(RythmTypes.VALUE)) {
             return VALUE_KEYS;
-        }else if (tokenType.equals(RythmTypes.COMMENT)){
+        } else if (tokenType.equals(RythmTypes.COMMENT)) {
             return COMMENT_KEYS;
-        }else
-        */
-        if (tokenType.equals(TokenType.BAD_CHARACTER)){
+        } else if (tokenType.equals(TokenType.BAD_CHARACTER)) {
             return BAD_CHAR_KEYS;
-        }else if(tokenType.equals(RythmTypes.AT)){
+        } else if (tokenType.equals(RythmTypes.AT)) {
             return AT_KEYS;
         } else {
             return EMPTY_KEYS;
         }
     }
 
-
 }
+
+
+
