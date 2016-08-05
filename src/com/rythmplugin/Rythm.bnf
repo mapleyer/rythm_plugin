@@ -17,4 +17,12 @@ rythmFile ::= item_*
 
 private item_ ::= (property|COMMENT|CRLF)
 
-property ::= (KEY? SEPARATOR VALUE?) | KEY
+property ::= (KEY? SEPARATOR VALUE?) | KEY |
+
+
+rythm_Rule ::= rythm_Rule1 rythm_Rule2 rythm_Rule3 rythm_Rule4
+
+rythm_Rule1 ::= AT_FOR
+rythm_Rule2 ::= AT_IF
+rythm_Rule3 ::= AT_WHILE
+rythm_Rule4 ::= AT
