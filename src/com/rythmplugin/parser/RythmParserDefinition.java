@@ -1,4 +1,4 @@
-package com.rythmplugin;
+package com.rythmplugin.parser;
 
 import com.intellij.lang.ASTNode;
 import com.intellij.lang.Language;
@@ -12,6 +12,8 @@ import com.intellij.psi.PsiFile;
 import com.intellij.psi.TokenType;
 import com.intellij.psi.tree.IFileElementType;
 import com.intellij.psi.tree.TokenSet;
+import com.rythmplugin.RythmLanguage;
+import com.rythmplugin.RythmLexerAdapter;
 import com.rythmplugin.parser.RythmParser;
 import com.rythmplugin.psi.RythmFile;
 import com.rythmplugin.psi.RythmTypes;

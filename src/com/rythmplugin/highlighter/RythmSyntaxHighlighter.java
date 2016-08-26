@@ -1,14 +1,24 @@
 package com.rythmplugin.highlighter;
 
-import com.intellij.lang.html.HTMLParser;
+import com.intellij.lang.Language;
+import com.intellij.lang.StdLanguages;
 import com.intellij.lexer.Lexer;
 import com.intellij.openapi.editor.DefaultLanguageHighlighterColors;
 import com.intellij.openapi.editor.HighlighterColors;
+import com.intellij.openapi.editor.colors.EditorColorsScheme;
 import com.intellij.openapi.editor.colors.TextAttributesKey;
+import com.intellij.openapi.editor.ex.util.LayerDescriptor;
+import com.intellij.openapi.editor.ex.util.LayeredLexerEditorHighlighter;
+import com.intellij.openapi.fileTypes.FileType;
+import com.intellij.openapi.fileTypes.StdFileTypes;
+import com.intellij.openapi.fileTypes.SyntaxHighlighter;
 import com.intellij.openapi.fileTypes.SyntaxHighlighterBase;
-import com.intellij.psi.TokenType;
+import com.intellij.openapi.project.Project;
+import com.intellij.openapi.vfs.VirtualFile;
+import com.intellij.psi.templateLanguages.TemplateDataLanguageMappings;
 import com.intellij.psi.tree.IElementType;
 import com.rythmplugin.RythmLexerAdapter;
+import com.rythmplugin.lexer.RythmTokenTypes;
 import com.rythmplugin.psi.RythmTypes;
 import com.sun.istack.internal.NotNull;
 import static com.intellij.openapi.editor.colors.TextAttributesKey.createTextAttributesKey;
@@ -19,6 +29,10 @@ import static com.intellij.openapi.editor.colors.TextAttributesKey.createTextAtt
  * Created by mpl on 05.08.2016.
  */
 public class RythmSyntaxHighlighter extends SyntaxHighlighterBase{
+
+
+
+
     public static final TextAttributesKey SEPARATOR = createTextAttributesKey("RYTHM_SEPARATOR", DefaultLanguageHighlighterColors.OPERATION_SIGN);
     public static final TextAttributesKey KEY = createTextAttributesKey("RYTHM_KEY", DefaultLanguageHighlighterColors.KEYWORD);
     public static final TextAttributesKey VALUE = createTextAttributesKey("RYTHM_VALUE", DefaultLanguageHighlighterColors.STRING);

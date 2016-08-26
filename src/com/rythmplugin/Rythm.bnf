@@ -20,7 +20,30 @@ private item_ ::= (property|COMMENT|CRLF|tokens/*|HTML_PART|JS_PART*/)
 property ::= RYTHM_ARGS| SEPARATOR|RYTHM_SECTION|RYTHM_EXTENDS|RYTHM_IMPORT|RYTHM_RENDER|RYTHM_INVOKE|RYTHM_ELSE|RYTHM_IF
 |RYTHM_FOR|RYTHM_I18N|RYTHM_PREFIX|RYTHM_NAVBOX|RYTHM|RYTHM_METHOD| RYTHM_SYN|RYTHM_BLOCK|RYTHM_PART|RYTHM_KEY
 
+/*
+{
+tokens1 = [
+SEMI = ';'
+EQ = '='
+LP = '('
+RP = ')'
 
+space = 'regexp:\s+'
+comment = 'regexp: @*'
+number = 'regexp: \d+(\.\d*)?'
+id = 'regexp: \p{Alpha}\w*'
+string = "regexp: ('([^'\\]|\\.)*'|\"([^\"\\]|\\.)*\")"
+
+op_1 = '+'
+op_2 = '-'
+op_3 = '*'
+op_4= '/'
+op_5 = '!'
+]
+name(".*expr")= 'expression'
+extends(".*expr")= expr
+}
+*/
 
 tokens ::= RBRACE|RBRACKET|RPAREN|PLUS_PLUS|MINUS_MINUS|LBRACE|LBRACKET|LPAREN|DOUBLE_COLON|
 COLON|SEMICOLON|COMMA|MULTI_ARGS|CLASS_ATTR_END|CLASS_ATTR_START|SHIFT_LEFT|SHIFT_RIGHT

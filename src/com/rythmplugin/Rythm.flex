@@ -16,6 +16,7 @@ import com.intellij.psi.TokenType;
 %eof{  return;
 %eof}
 
+
 CRLF= \n|\r|\r\n
 WHITE_SPACE=[\ \t\f]
 //FIRST_VALUE_CHARACTER=[^ \n\r\f\\] | "\\"{CRLF} | "\\".
@@ -89,6 +90,7 @@ RYTHM_ELSE = else\s?\{
 //RYTHM_I18N = @i18n|@i18n.*\"\)*
 //RYTHM_PREFIX = @prefix
 //RYTHM_NAVBOX = @navbox
+
 
 
 
